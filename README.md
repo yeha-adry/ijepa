@@ -5,8 +5,8 @@ Official PyTorch codebase for I-JEPA (the **Image-based Joint-Embedding Predicti
 
 ## Method
 I-JEPA is a method for self-supervised learning. At a high level, I-JEPA predicts the representations of part of an image from the representations of other parts of the same image. Notably, this approach learns semantic image features:
-1. without relying on pre-specified invariances to hand-crafted data transformations, which tend to be biased for particular downstream tasks,
-2. and without having the model fill in pixel-level details, which tend to result in learning less semantically meaningful representations.
+1. **without relying on pre-specified invariances to hand-crafted data transformations**, which tend to be biased for particular downstream tasks,
+2. and without having the model fill in pixel-level details, which tends to result in learning less semantically meaningful representations.
 
 ![ijepa](https://github.com/facebookresearch/ijepa/assets/7530871/dbad94ab-ac35-433b-8b4c-ca227886d311)
 
@@ -14,7 +14,7 @@ I-JEPA is a method for self-supervised learning. At a high level, I-JEPA predict
 
 As opposed to generative methods that have a pixel decoder, I-JEPA has a predictor that makes predictions in latent space.
 The predictor in I-JEPA can be seen as a primitive (and restricted) world-model that is able to model spatial uncertainty in a static image from a partially observable context.
-This world model is semantic in the sense that it predicts high level information about unseen regions in the image, rather than pixel-level details.
+This world model is semantic in the sense that it predicts high-level information about unseen regions in the image, rather than pixel-level details.
 
 We trained a stochastic decoder that maps the I-JEPA predicted representations back in pixel space as sketches.
 The model correctly captures positional uncertainty and produces high-level object parts with the correct pose (e.g., dog’s head, wolf’s front legs).
@@ -29,7 +29,7 @@ Caption: Illustrating how the predictor learns to model the semantics of the wor
 I-JEPA pretraining is also computationally efficient.
 It does not involve any overhead associated with applying more computationally intensive data augmentations to produce multiple views.
 Only one view of the image needs to be processed by the target encoder, and only the context blocks need to be processed by the context encoder.
-Empirically, I-JEPA learns strong off-the-shelf semantic representations without the use of hand-crafted view augmentations.
+Empirically, I-JEPA learns strong off-the-shelf semantic representations **without the use of hand-crafted view augmentations**.
 
 ![1percenteval](https://github.com/facebookresearch/ijepa/assets/7530871/e6e5291f-ca51-43a4-a6cf-069811094ece)
 ![lineareval](https://github.com/facebookresearch/ijepa/assets/7530871/d8cffa73-5350-444e-987a-7e131a86d767)
